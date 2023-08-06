@@ -1,0 +1,52 @@
+/*
+Rotate the matrix to 90*
+Step 1) Transpose
+Step 2) reverse of each element in row
+*/
+class HelloWorld {
+    public static void main(String[] args) {
+        int[][] arr = {{1,2,3}, {4, 5, 6}, {7,8,9}};
+       //output-- {{7,4,1}, {8,5,2}, {9,6,3}}
+        int i=0, j=0;
+        int n = 3;
+        
+        // Transpose
+        for (i=0; i<n; i++) {
+            for (j=0; j<n; j++) {
+                if (i < j) {
+                    arr[i][j] = arr[i][j] ^ arr[j][i];
+                    arr[j][i] = arr[i][j] ^ arr[j][i];
+                    arr[i][j] = arr[i][j] ^ arr[j][i];
+                }
+                            
+            }
+        }
+        // print
+        for (i=0; i<n; i++) {
+            for (j=0; j<n; j++) {
+                System.out.println(arr[i][j]);
+            }
+        }
+        
+        // reverse
+        for (j=0; j<n; j++) {
+            for (i=0; i<n/2; i++) {
+                arr[j][i] = arr[j][i] ^ arr[j][n-i-1];
+                arr[j][n-i-1] = arr[j][i] ^ arr[j][n-i-1];
+                arr[j][i] = arr[j][i] ^ arr[j][n-i-1];
+            }
+        }
+        
+        
+        
+        // print
+        for (i=0; i<n; i++) {
+            for (j=0; j<n; j++) {
+                System.out.println(arr[i][j]);
+            }
+        }
+        
+    }
+    
+    
+}
