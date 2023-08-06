@@ -1,0 +1,40 @@
+/*
+Print all the elements in spiral order
+*/
+
+class Sprial {
+    public static void main(String[] args) {
+        int[][] arr = {{1,2,3,4}, {5,6,7,8}, {9,10,11,12}, {13,14,15,16}};
+        int n =4;
+        int i=0;
+        int top = 0;
+        int bottom =n-1;
+        int left = 0;
+        int right = n-1;
+        while(top<=bottom && left<=bottom)
+        {
+            for (i=top; i<=right; i++) {
+                System.out.println(arr[top][i]);
+            }
+            System.out.println();
+            top++;
+            for (i=top; i<=bottom; i++) {
+                System.out.println(arr[i][bottom]);
+            }
+            System.out.println();
+            right--;
+            for (i=right; i>=left; i--) {
+                System.out.println(arr[bottom][i]);
+            }
+            System.out.println();
+            bottom --;
+            for (i=bottom; i>=top; i--) {
+                System.out.println(arr[i][left]);
+            }
+            System.out.println();
+            left++;
+                
+        }    
+        
+    }
+}
